@@ -40,7 +40,7 @@ export function OutputDemo() {
                 style={{
                   height: "100%",
                   width: `${probs[i] * 100}%`,
-                  background: "linear-gradient(90deg, #F59E0B, #D97706)",
+                  background: `linear-gradient(90deg, #F59E0B, #D97706)`,
                   opacity: 0.3 + probs[i] * 0.7,
                   borderRadius: 4,
                   transition: "width 0.4s ease",

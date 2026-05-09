@@ -67,7 +67,7 @@ export function LayerDemo() {
                   </span>
                   <span style={{ color: "#888", fontSize: 13, marginLeft: 12 }}>{l.role}</span>
                 </div>
-                <span style={{ color: "#444", fontSize: 16 }}>{expanded === i ? "-" : "+"}</span>
+                <span style={{ color: "#444", fontSize: 16 }}>{expanded === i ? "−" : "+"}</span>
               </div>
               {expanded === i && (
                 <div

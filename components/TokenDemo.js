@@ -26,7 +26,7 @@ export function TokenDemo() {
       }, 350);
       return () => clearTimeout(t);
     }
-  }, [step, tokens.length]);
+  }, [step]);
 
   const reset = () => { setRevealed([]); setStep(0); };
 

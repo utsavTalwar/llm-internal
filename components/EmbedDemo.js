@@ -77,8 +77,8 @@ export function EmbedDemo() {
                 </div>
               ))}
             </div>
-            <div style={{ color: "#444", fontSize: 11, fontFamily: "monospace", width: 100 }}>
-              …4096 dims
+            <div style={{ color: "#444", fontSize: 11, fontFamily: "monospace", whiteSpace: "nowrap", flexShrink: 0 }}>
+              …{Math.floor(Math.random() * 4000 + 4000)} dims
             </div>
           </div>
         ))}
