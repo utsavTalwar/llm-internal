@@ -44,11 +44,10 @@ export function AttentionDemo() {
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
         {words.map((w, i) => (
-          <div key={i} style={{ display: "flex", alignItems: "center", gap: 10 }}>
+          <div key={i} style={{ display: "flex", alignItems: "center", gap: 12 }}>
             <div
               style={{
-                width: 44,
-                flexShrink: 0,
+                width: 50,
                 color: i === focused ? "#A855F7" : "#666",
                 fontSize: 13,
                 fontFamily: "monospace",
@@ -57,18 +56,17 @@ export function AttentionDemo() {
             >
               {w}
             </div>
-            <div style={{ flex: 1, height: 20, background: "#111", borderRadius: 4, overflow: "hidden" }}>
-              <div
-                style={{
-                  height: "100%",
-                  width: `${weights[focused][i] * 100}%`,
-                  background: "linear-gradient(90deg, #A855F7, #7C3AED)",
-                  borderRadius: 4,
-                  transition: "width 0.5s cubic-bezier(0.4,0,0.2,1)",
-                }}
-              />
-            </div>
-            <div style={{ width: 36, flexShrink: 0, color: "#555", fontSize: 12, fontFamily: "monospace", textAlign: "right" }}>
+            <div
+              style={{
+                height: 20,
+                width: `${weights[focused][i] * 350}px`,
+                background: "linear-gradient(90deg, #A855F7, #7C3AED)",
+                borderRadius: 4,
+                transition: "width 0.5s cubic-bezier(0.4,0,0.2,1)",
+                minWidth: 4,
+              }}
+            />
+            <div style={{ color: "#555", fontSize: 12, fontFamily: "monospace" }}>
               {(weights[focused][i] * 100).toFixed(0)}%
             </div>
           </div>

@@ -80,7 +80,6 @@ export function ArchDemo() {
 
   return (
     <div>
-      {/* Tabs */}
       <div style={{ display: "flex", gap: 8, marginBottom: 24 }}>
         {archs.map((a) => (
           <button
@@ -106,7 +105,6 @@ export function ArchDemo() {
         ))}
       </div>
 
-      {/* Badge + tagline */}
       <div style={{ display: "flex", gap: 10, alignItems: "center", marginBottom: 16 }}>
         <span style={{ background: arch.color + "22", border: `1px solid ${arch.color}44`, borderRadius: 20, padding: "3px 12px", color: arch.color, fontSize: 11, fontFamily: "monospace" }}>
           {arch.badge}
@@ -114,10 +112,8 @@ export function ArchDemo() {
         <span style={{ color: "#555", fontSize: 12 }}>Task type: <strong style={{ color: "#888" }}>{arch.tagline}</strong></span>
       </div>
 
-      {/* Architecture diagram */}
       {selected === "enc-dec" ? (
         <div style={{ display: "flex", gap: 0, marginBottom: 20, alignItems: "flex-start", background: "#0a0a0a", borderRadius: 10, padding: 16, border: "1px solid #1a1a1a" }}>
-          {/* Encoder side */}
           <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", gap: 4 }}>
             <div style={{ color: "#38BDF8", fontSize: 10, letterSpacing: 2, textTransform: "uppercase", marginBottom: 4, fontFamily: "monospace" }}>Encoder</div>
             <BOX label="Bonjour Paris" color="#38BDF8" />
@@ -128,9 +124,7 @@ export function ArchDemo() {
               Context<br/>vectors
             </div>
           </div>
-          {/* Cross arrow */}
           <div style={{ display: "flex", alignItems: "center", padding: "48px 8px 0", color: "#A78BFA", fontSize: 20 }}>⇢</div>
-          {/* Decoder side */}
           <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", gap: 4 }}>
             <div style={{ color: "#A78BFA", fontSize: 10, letterSpacing: 2, textTransform: "uppercase", marginBottom: 4, fontFamily: "monospace" }}>Decoder</div>
             <BOX label="Hello Paris" color="#A78BFA" />
@@ -143,19 +137,16 @@ export function ArchDemo() {
           </div>
         </div>
       ) : (
-        /* Encoder-only / Decoder-only token grid */
         <div style={{ background: "#0a0a0a", borderRadius: 10, padding: 16, marginBottom: 20, border: "1px solid #1a1a1a" }}>
           <div style={{ color: "#444", fontSize: 10, letterSpacing: 2, fontFamily: "monospace", marginBottom: 12, textTransform: "uppercase" }}>
             Which words can see which ({arch.attnType.split("—")[0].trim()})
           </div>
           <div style={{ display: "grid", gridTemplateColumns: `repeat(${arch.tokens.length}, 1fr)`, gap: 4 }}>
-            {/* Column headers */}
             {arch.tokens.map((t, i) => (
               <div key={i} style={{ textAlign: "center", color: arch.color, fontSize: 11, fontFamily: "monospace", paddingBottom: 4 }}>{t}</div>
             ))}
-            {/* Grid cells */}
-            {arch.tokens.map((row, ri) =>
-              arch.tokens.map((col, ci) => {
+            {arch.tokens.map((_, ri) =>
+              arch.tokens.map((_, ci) => {
                 const hasArrow = arch.arrows.some(([r, c]) => r === ri && c === ci) || ri === ci;
                 return (
                   <div
@@ -177,7 +168,6 @@ export function ArchDemo() {
                 );
               })
             )}
-            {/* Row labels */}
             {arch.tokens.map((t, i) => (
               <div key={i} style={{ textAlign: "center", color: "#444", fontSize: 10, fontFamily: "monospace", paddingTop: 2 }}>{t}</div>
             ))}
@@ -188,12 +178,10 @@ export function ArchDemo() {
         </div>
       )}
 
-      {/* How it works */}
       <div style={{ color: "#888", fontSize: 13, lineHeight: 1.7, marginBottom: 16, fontFamily: "sans-serif" }}>
         {arch.howItWorks}
       </div>
 
-      {/* Use cases */}
       <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
         {arch.useCases.map((u, i) => (
           <span
